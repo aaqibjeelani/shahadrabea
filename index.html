@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,12 @@
   <!-- ============================================================
        TITLE + SEO
        - Edit the <title> and meta tags if you need to.
-       - For an Arabic version later: change <html lang="en">
-         to <html lang="ar" dir="rtl">.
+       - The site is bilingual (Arabic default / English optional).
+         Language switching is handled by script.js via the header
+         language switcher.
        ============================================================ -->
-  <title>Shahad Rabea | Mathematics Educator &amp; Content Creator</title>
-  <meta name="description" content="Hi, I'm Shahad Rabea — a mathematics teacher sharing bite-sized Reels that make maths simple, visual and fun. Follow @shahad.rabea11 on Instagram.">
+  <title data-i18n="meta.title">شهد ربيعة | معلّمة رياضيات وصانعة محتوى</title>
+  <meta name="description" content="مرحباً، أنا شهد ربيعة — معلّمة رياضيات أشارك مقاطع قصيرة تجعل الرياضيات بسيطة ومرئية وممتعة. تابعوني على إنستغرام @shahad.rabea11." data-i18n-meta="meta.description">
   <meta name="author" content="Shahad Rabea">
   <link rel="canonical" href="https://aaqibjeelani.github.io/REPO-NAME/">
 
@@ -26,8 +27,8 @@
          Pages — they can't load from your local computer.)
        ============================================================ -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Shahad Rabea — Mathematics Educator &amp; Content Creator">
-  <meta property="og:description" content="Making maths simple, visual and fun. Bite-sized math Reels on Instagram. Follow @shahad.rabea11.">
+  <meta property="og:title" content="شهد ربيعة — معلّمة رياضيات وصانعة محتوى" data-i18n-meta="meta.ogTitle">
+  <meta property="og:description" content="نجعل الرياضيات بسيطة ومرئية وممتعة. مقاطع رياضيات قصيرة على إنستغرام. تابعوني @shahad.rabea11." data-i18n-meta="meta.ogDesc">
   <meta property="og:url" content="https://aaqibjeelani.github.io/REPO-NAME/">
   <meta property="og:image" content="https://aaqibjeelani.github.io/REPO-NAME/assets/profile.jpg">
   <meta property="og:image:alt" content="Shahad Rabea — Mathematics Educator">
@@ -35,8 +36,8 @@
   <meta property="og:image:height" content="960">
   <meta property="og:site_name" content="Shahad Rabea">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Shahad Rabea — Mathematics Educator">
-  <meta name="twitter:description" content="Making maths simple, visual and fun. Bite-sized math Reels on Instagram. Follow @shahad.rabea11.">
+  <meta name="twitter:title" content="شهد ربيعة — معلّمة رياضيات" data-i18n-meta="meta.ogTitle">
+  <meta name="twitter:description" content="نجعل الرياضيات بسيطة ومرئية وممتعة. مقاطع رياضيات قصيرة على إنستغرام. تابعوني @shahad.rabea11." data-i18n-meta="meta.ogDesc">
   <meta name="twitter:image" content="https://aaqibjeelani.github.io/REPO-NAME/assets/profile.jpg">
 
   <!-- Favicon (inline SVG — no extra file needed) -->
@@ -47,10 +48,11 @@
        - Space Grotesk   = headings (geometric, modern, techy)
        - Inter           = body text (clean, readable)
        - STIX Two Text   = the math formulas (a proper math font)
+       - Tajawal         = Arabic text (body + headings)
        ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -80,6 +82,7 @@
   <!-- ============================================================
        HEADER / NAVIGATION
        The nav links point at sections on this page — leave as-is.
+       The language switcher sits at the top-right of the header.
        ============================================================ -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
@@ -87,15 +90,27 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#reels">Reels</a></li>
-          <li><a class="nav-link" href="#why">Why follow</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li><a class="nav-link nav-cta" href="https://www.instagram.com/shahad.rabea11/" target="_blank" rel="noopener">Follow me</a></li>
+          <li><a class="nav-link" href="#about" data-i18n="nav.about">من أنا</a></li>
+          <li><a class="nav-link" href="#reels" data-i18n="nav.reels">الريلز</a></li>
+          <li><a class="nav-link" href="#why" data-i18n="nav.why">لماذا أتابع؟</a></li>
+          <li><a class="nav-link" href="#contact" data-i18n="nav.contact">تواصل معي</a></li>
+          <li><a class="nav-link nav-cta" href="https://www.instagram.com/shahad.rabea11/" target="_blank" rel="noopener" data-i18n="nav.follow">تابعني</a></li>
         </ul>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <!-- Language switcher -->
+      <div class="lang-switch" id="lang-switch">
+        <button class="lang-switch-btn" id="lang-switch-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language / اختر اللغة">
+          <span class="lang-current" id="lang-current">العربية</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Language / اللغة">
+          <li><button class="lang-option is-active" type="button" data-lang="ar" role="option" aria-selected="true">العربية</button></li>
+          <li><button class="lang-option" type="button" data-lang="en" role="option" aria-selected="false">English</button></li>
+        </ul>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu / فتح القائمة" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -117,22 +132,22 @@
         <div class="hero-text">
           <span class="badge">
             <span class="badge-dot"></span>
-            Mathematics Educator &middot; Content Creator
+            <span data-i18n="hero.badge">معلمة رياضيات · صانعة محتوى</span>
           </span>
 
           <h1 class="hero-title">Shahad&nbsp;Rabea</h1>
-          <p class="hero-tagline">Making maths <span class="grad-text">simple, visual &amp; fun.</span></p>
-          <p class="hero-lead">
-            I'm a teacher who turns tricky math into bite-sized Reels —
-            clear, friendly and easy to follow, one <em>x</em> at a time.
+          <p class="hero-tagline" data-i18n-html="hero.tagline">نجعل الرياضيات <span class="grad-text">بسيطة، مرئية وممتعة.</span></p>
+          <p class="hero-lead" data-i18n-html="hero.lead">
+            أنا معلمة أحوّل المسائل الرياضية الصعبة إلى مقاطع قصيرة —
+            واضحة وودودة وسهلة المتابعة، متغيراً <em>x</em> في كل مرة.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://www.instagram.com/shahad.rabea11/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              Follow on Instagram
+              <span data-i18n="hero.ctaFollow">تابعني على إنستغرام</span>
             </a>
-            <a class="btn btn-secondary" href="#reels">Explore the Reels</a>
+            <a class="btn btn-secondary" href="#reels" data-i18n="hero.ctaExplore">استكشف المقاطع</a>
           </div>
 
           <!-- ====================================================
@@ -143,15 +158,15 @@
           <div class="hero-stats">
             <div class="stat">
               <span class="stat-num"><span class="count" data-count="100" data-suffix="+">0</span></span>
-              <span class="stat-label">Math Reels</span>
+              <span class="stat-label" data-i18n="hero.statReels">مقطع رياضي</span>
             </div>
             <div class="stat">
               <span class="stat-num"><span class="count" data-count="50" data-suffix="+">0</span></span>
-              <span class="stat-label">Topics explained</span>
+              <span class="stat-label" data-i18n="hero.statTopics">موضوعاً مشروحاً</span>
             </div>
             <div class="stat">
               <span class="stat-num"><span class="count" data-count="10" data-suffix="k+">0</span></span>
-              <span class="stat-label">Learners reached</span>
+              <span class="stat-label" data-i18n="hero.statLearners">متعلّماً وصل إليها</span>
             </div>
           </div>
         </div>
@@ -228,34 +243,32 @@
         <div class="about-grid">
 
           <div class="about-text reveal">
-            <p class="eyebrow">About me</p>
-            <h2>Hi, I'm Shahad</h2>
-            <p>
-              I'm a mathematics teacher who believes numbers should never feel scary.
-              That's why I turn confusing concepts into short, visual Reels — so a
-              tricky idea becomes a moment of <em>"oh, that's easy!"</em>
+            <p class="eyebrow" data-i18n="about.eyebrow">نبذة عني</p>
+            <h2 data-i18n="about.title">مرحباً، أنا شهد</h2>
+            <p data-i18n-html="about.p1">
+              أنا معلمة رياضيات أؤمن بأن الأرقام يجب ألا تكون مخيفة أبداً.
+              لذلك أحوّل المفاهيم المربكة إلى مقاطع قصيرة ومرئية — ليتحول
+              الفهم الصعب إلى لحظة <em>«أوه، هذا سهل!»</em>
             </p>
-            <p>
-              <!-- REPLACE with her real story: what she teaches, how long she's
-                   taught, why she started posting, what she loves most. -->
-              Whether it's algebra, geometry or just getting comfortable with maths,
-              I keep every lesson clear, friendly and genuinely useful. I'm so glad
-              you're here — let's solve this together.
+            <p data-i18n-html="about.p2">
+              سواء كان الجبر أو الهندسة أو مجرد التعوّد على الرياضيات،
+              أحرص على أن يكون كل درس واضحاً وودوداً ومفيداً حقاً. أنا
+              سعيدة جداً بوجودك هنا — لنحلّ المسائل معاً.
             </p>
           </div>
 
           <div class="about-side reveal">
             <div class="formula-rotator">
-              <p class="formula-label">Favourite formula</p>
+              <p class="formula-label" data-i18n="about.favLabel">الصيغة المفضلة</p>
               <div class="formula"><span class="formula-num">1</span> a² + b² = c²</div>
               <div class="formula"><span class="formula-num">2</span> x = −b / 2a</div>
               <div class="formula"><span class="formula-num">3</span> e<sup>iπ</sup> + 1 = 0</div>
               <div class="formula"><span class="formula-num">4</span> 1 + 1 = 2</div>
             </div>
             <ul class="about-facts">
-              <li><strong>I teach:</strong> <span>Mathematics (edit me)</span></li>
-              <li><strong>My goal:</strong> <span>make maths feel easy and enjoyable</span></li>
-              <li><strong>Where to find me:</strong> <span>Instagram, every week</span></li>
+              <li><strong data-i18n="about.teachLabel">أُدرّس:</strong> <span data-i18n="about.teachValue">الرياضيات</span></li>
+              <li><strong data-i18n="about.goalLabel">هدفي:</strong> <span data-i18n="about.goalValue">أن أجعل الرياضيات سهلة وممتعة</span></li>
+              <li><strong data-i18n="about.findLabel">أين تجدني:</strong> <span data-i18n="about.findValue">إنستغرام، كل أسبوع</span></li>
             </ul>
           </div>
 
@@ -282,9 +295,9 @@
     <section id="reels" class="section section-alt">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Reels &amp; lessons</p>
-          <h2>Fresh math, every week</h2>
-          <p class="section-lede">Short, scrollable lessons you can watch in a minute — hover the cards, they tilt.</p>
+          <p class="eyebrow" data-i18n="reels.eyebrow">مقاطع ودروس</p>
+          <h2 data-i18n="reels.title">رياضيات جديدة كل أسبوع</h2>
+          <p class="section-lede" data-i18n="reels.lede">دروس قصيرة تشاهدها في دقيقة — مرّر المؤشر على البطاقات لتراها تميل.</p>
         </div>
 
         <div class="reel-grid">
@@ -302,7 +315,7 @@
                 <span class="skeleton-play">
                   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </span>
-                <span class="skeleton-text">Loading reel&hellip;</span>
+                <span class="skeleton-text" data-i18n="reels.loading">جارٍ تحميل المقطع…</span>
               </div>
               <blockquote class="instagram-media" data-instgrm-captioned
                 data-instgrm-permalink="https://www.instagram.com/reel/DbqmqW6M3xl/?utm_source=ig_embed&amp;utm_campaign=loading"
@@ -317,7 +330,7 @@
                 <span class="skeleton-play">
                   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </span>
-                <span class="skeleton-text">Loading reel&hellip;</span>
+                <span class="skeleton-text" data-i18n="reels.loading">جارٍ تحميل المقطع…</span>
               </div>
               <blockquote class="instagram-media" data-instgrm-captioned
                 data-instgrm-permalink="https://www.instagram.com/reel/Dbskp8uu0xt/?utm_source=ig_embed&amp;utm_campaign=loading"
@@ -332,7 +345,7 @@
                 <span class="skeleton-play">
                   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </span>
-                <span class="skeleton-text">Loading reel&hellip;</span>
+                <span class="skeleton-text" data-i18n="reels.loading">جارٍ تحميل المقطع…</span>
               </div>
               <blockquote class="instagram-media" data-instgrm-captioned
                 data-instgrm-permalink="https://www.instagram.com/reel/DZnPKrhMw7S/?utm_source=ig_embed&amp;utm_campaign=loading"
@@ -347,7 +360,7 @@
                 <span class="skeleton-play">
                   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </span>
-                <span class="skeleton-text">Loading reel&hellip;</span>
+                <span class="skeleton-text" data-i18n="reels.loading">جارٍ تحميل المقطع…</span>
               </div>
               <blockquote class="instagram-media" data-instgrm-captioned
                 data-instgrm-permalink="https://www.instagram.com/reel/DY-hgccOJ2I/?utm_source=ig_embed&amp;utm_campaign=loading"
@@ -362,7 +375,7 @@
                 <span class="skeleton-play">
                   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </span>
-                <span class="skeleton-text">Loading reel&hellip;</span>
+                <span class="skeleton-text" data-i18n="reels.loading">جارٍ تحميل المقطع…</span>
               </div>
               <blockquote class="instagram-media" data-instgrm-captioned
                 data-instgrm-permalink="https://www.instagram.com/reel/DYWpq5Ksr0z/?utm_source=ig_embed&amp;utm_campaign=loading"
@@ -377,7 +390,7 @@
                 <span class="skeleton-play">
                   <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </span>
-                <span class="skeleton-text">Loading reel&hellip;</span>
+                <span class="skeleton-text" data-i18n="reels.loading">جارٍ تحميل المقطع…</span>
               </div>
               <blockquote class="instagram-media" data-instgrm-captioned
                 data-instgrm-permalink="https://www.instagram.com/reel/DYQKoU_uQ-v/?utm_source=ig_embed&amp;utm_campaign=loading"
@@ -388,7 +401,7 @@
         </div>
 
         <div class="section-cta reveal">
-          <a class="btn btn-secondary" href="https://www.instagram.com/shahad.rabea11/reels/" target="_blank" rel="noopener">See all Reels on Instagram</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/shahad.rabea11/reels/" target="_blank" rel="noopener" data-i18n="reels.cta">شاهد كل المقاطع على إنستغرام</a>
         </div>
       </div>
     </section>
@@ -399,8 +412,8 @@
     <section id="why" class="section">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Why follow along?</p>
-          <h2>What you'll get when you hit follow</h2>
+          <p class="eyebrow" data-i18n="why.eyebrow">لماذا تتابعين؟</p>
+          <h2 data-i18n="why.title">ما الذي ستحصلين عليه عند المتابعة</h2>
         </div>
 
         <div class="value-grid">
@@ -408,32 +421,32 @@
             <span class="value-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </span>
-            <h3>Bite-sized lessons</h3>
-            <p>Big formulas, broken into Reels you can watch in about a minute.</p>
+            <h3 data-i18n="why.c1title">دروس صغيرة الحجم</h3>
+            <p data-i18n="why.c1text">صيغ كبيرة، مقسّمة إلى مقاطع تشاهدها في حوالي دقيقة.</p>
           </div>
 
           <div class="value-card tilt reveal">
             <span class="value-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </span>
-            <h3>Clear explanations</h3>
-            <p>No jargon, no shortcuts that confuse — taught step by step.</p>
+            <h3 data-i18n="why.c2title">شروحات واضحة</h3>
+            <p data-i18n="why.c2text">بدون مصطلحات معقّدة ولا اختصارات مربكة — الشرح خطوة بخطوة.</p>
           </div>
 
           <div class="value-card tilt reveal">
             <span class="value-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </span>
-            <h3>Practical takeaways</h3>
-            <p>Leave every Reel with a trick you can use in class or exams.</p>
+            <h3 data-i18n="why.c3title">فوائد عملية</h3>
+            <p data-i18n="why.c3text">تخرجين من كل مقطع بحيلة تستخدمينها في الصف أو الامتحانات.</p>
           </div>
 
           <div class="value-card tilt reveal">
             <span class="value-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </span>
-            <h3>Made with care</h3>
-            <p>Every lesson is built for real students — not just for views.</p>
+            <h3 data-i18n="why.c4title">مصنوع بعناية</h3>
+            <p data-i18n="why.c4text">كل درس مبني لطلاب حقيقيين — وليس فقط لزيادة المشاهدات.</p>
           </div>
         </div>
       </div>
@@ -448,40 +461,40 @@
     <section id="contact" class="section section-alt">
       <div class="container">
         <div class="contact-card reveal">
-          <p class="eyebrow">Say hello</p>
-          <h2>Let's solve problems together</h2>
-          <p class="contact-text">
-            New math Reels drop every week. Ask a question, request a topic, or just
-            say hi — the fastest way to reach me is Instagram.
+          <p class="eyebrow" data-i18n="contact.eyebrow">قل مرحباً</p>
+          <h2 data-i18n="contact.title">لنحلّ المسائل معاً</h2>
+          <p class="contact-text" data-i18n="contact.text">
+            مقاطع رياضيات جديدة كل أسبوع. اطرحي سؤالاً، اطلبي موضوعاً، أو فقط
+            قولي مرحباً — أسرع طريقة للتواصل معي هي إنستغرام.
           </p>
 
           <a class="btn btn-primary btn-lg" href="https://www.instagram.com/shahad.rabea11/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            Follow @shahad.rabea11
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span data-i18n="contact.cta">تابعيني على @shahad.rabea11</span>
           </a>
 
           <ul class="social-icons">
             <!-- Instagram (live) -->
             <li>
-              <a class="social-icon" href="https://www.instagram.com/shahad.rabea11/" target="_blank" rel="noopener" aria-label="Shahad Rabea on Instagram" title="Instagram">
+              <a class="social-icon" href="https://www.instagram.com/shahad.rabea11/" target="_blank" rel="noopener" aria-label="Shahad Rabea on Instagram" title="Instagram" data-i18n-aria="social.insta" data-i18n-title="social.instaTitle">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </a>
             </li>
             <!-- TikTok (PLACEHOLDER — replace href) -->
             <li>
-              <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="Shahad Rabea on TikTok" title="TikTok">
+              <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="Shahad Rabea on TikTok" title="TikTok" data-i18n-aria="social.tiktok" data-i18n-title="social.tiktokTitle">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
               </a>
             </li>
             <!-- YouTube (PLACEHOLDER — replace href) -->
             <li>
-              <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="Shahad Rabea on YouTube" title="YouTube">
+              <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="Shahad Rabea on YouTube" title="YouTube" data-i18n-aria="social.youtube" data-i18n-title="social.youtubeTitle">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </a>
             </li>
             <!-- Email (PLACEHOLDER — replace href with mailto:hello@example.com) -->
             <li>
-              <a class="social-icon" href="#" aria-label="Email Shahad Rabea" title="Email">
+              <a class="social-icon" href="#" aria-label="Email Shahad Rabea" title="Email" data-i18n-aria="social.email" data-i18n-title="social.emailTitle">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </a>
             </li>
@@ -501,9 +514,9 @@
     <div class="container footer-inner">
       <p class="credit">
         <img class="credit-logo" src="https://aaqibjeelani.github.io/ajvirus/images/transparentlogo%20aj.png" alt="Aaqib Jeelani logo">
-        Developed by <a href="https://aaqibjeelani.github.io/" target="_blank" rel="noopener">Aaqib Jeelani</a>
+        <span data-i18n="footer.developedBy">طُوّر بواسطة</span> <a href="https://aaqibjeelani.github.io/" target="_blank" rel="noopener">Aaqib Jeelani</a>
       </p>
-      <p class="copyright">&copy; <span id="year"></span> Shahad Rabea. All rights reserved.</p>
+      <p class="copyright">&copy; <span id="year"></span> Shahad Rabea. <span data-i18n="footer.rights">جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
 

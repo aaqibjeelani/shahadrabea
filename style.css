@@ -44,6 +44,16 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
+/* Arabic font override when document is RTL */
+html[lang="ar"] body {
+  font-family: 'Tajawal', var(--font-body);
+}
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3 {
+  font-family: 'Tajawal', var(--font-head);
+}
+
 /* ------------------------------------------ base */
 *,
 *::before,
@@ -253,6 +263,100 @@ body.nav-open .site-header {
 .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ----------------------------------------------------------
+   LANGUAGE SWITCHER
+   A small dropdown in the header (top-right) that lets
+   visitors switch between Arabic (default) and English.
+   ---------------------------------------------------------- */
+.lang-switch {
+  position: relative;
+  margin-inline-start: 14px;
+}
+
+.lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  white-space: nowrap;
+}
+
+.lang-switch-btn:hover,
+.lang-switch.open .lang-switch-btn {
+  border-color: var(--cyan);
+  background: var(--card-hover);
+}
+
+.lang-switch-btn svg {
+  transition: transform 0.25s var(--ease);
+  color: var(--muted);
+}
+
+.lang-switch.open .lang-switch-btn svg {
+  transform: rotate(180deg);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  min-width: 140px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s var(--ease), visibility 0.25s;
+  z-index: 60;
+}
+
+.lang-switch.open .lang-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.lang-option {
+  display: block;
+  width: 100%;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: start;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-option:hover {
+  background: var(--card-hover);
+  color: var(--text);
+}
+
+.lang-option.is-active {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--cyan);
+  font-weight: 600;
+}
 
 /* ============================================================
    SHARED SECTION BITS
@@ -1376,5 +1480,60 @@ body.nav-open .site-header {
   .nav-cta {
     text-align: center;
     padding: 12px;
+  }
+}
+
+/* ============================================================
+   RTL OVERRIDES (Arabic default)
+   ------------------------------------------------------------
+   Logical properties (margin-inline-start etc.) already flip
+   automatically. These rules fix the few places that use
+   physical left/right, so the Arabic (RTL) layout reads clean.
+   ============================================================ */
+html[dir="rtl"] .brand sup {
+  margin-left: 0;
+  margin-right: 2px;
+}
+
+html[dir="rtl"] .nav-link::after {
+  left: 100%;
+  right: 0;
+  transition: left 0.25s var(--ease);
+}
+
+html[dir="rtl"] .nav-link:hover::after,
+html[dir="rtl"] .nav-link.active::after {
+  left: 0;
+}
+
+html[dir="rtl"] .marquee-track {
+  animation-direction: reverse;
+}
+
+html[dir="rtl"] .play-badge {
+  left: auto;
+  right: 12px;
+}
+
+/* desktop: mirror text alignment + hero scene placement */
+@media (min-width: 960px) {
+  html[dir="rtl"] .hero-inner {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .hero-text {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .hero-scene {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* mobile nav dropdown text alignment */
+@media (max-width: 959px) {
+  html[dir="rtl"] .nav-link {
+    text-align: right;
   }
 }
